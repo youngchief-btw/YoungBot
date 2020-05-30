@@ -1,0 +1,23 @@
+{
+  "main": "node src/YoungBot.js",
+  "scripts": {
+    "start": "node src/YoungBot.js"
+  },
+  "engines": {
+    "node": "v14.3.0"
+  },
+  "dependencies": {
+    "@discordjs/opus": "^0.1.0",
+    "@octokit/rest": "^17.1.0",
+    "@sentry/node": "^5.15.5",
+    "discord.js": "^12.0.2",
+    "discord.js-tictactoe": "^1.0.2",
+    "endb": "^0.21.7",
+    "express": "^4.17.1",
+    "jsoning": "^0.4.11",
+    "node-cmd": "^3.0.0",
+    "node-fetch": "^2.6.0",
+    "ytdl-core": "^2.0.0",
+    "ytdl-core-discord": "^1.1.0"
+  }
+}
