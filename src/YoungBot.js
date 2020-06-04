@@ -22,7 +22,7 @@ Sentry.init({ dsn: process.env.SentryProjectURL }); // Sentry setup
 app.get("/", (request, response) => {
   response
     .status(200)
-    .send("<style>* { font-family: sans-serif; }</style><h1>YoungBot</h1>");
+    .send("<style>* { font-family: sans-serif; }</style><center<h1>YoungBot</h1></center>");
 });
 
 app.get("*", (request, response) => {
