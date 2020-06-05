@@ -16,6 +16,13 @@ const Sentry = require("@sentry/node");
 const ttt = require("discord.js-tictactoe");
 let jsoning = require("jsoning");
 let db = new jsoning("../db.json");
+var SpotifyWebApi = require('spotify-web-api-node');
+
+var spotifyApi = new SpotifyWebApi({
+  clientId: process.env.Spotify_ClientID,
+  clientSecret: rocess.env.Spotify_ClientSecret,
+  redirectUri: 'http://www.example.com/callback'
+});
 
 Sentry.init({ dsn: process.env.SentryProjectURL }); // Sentry setup
 
@@ -464,6 +471,10 @@ client.on("message", async message => {
     const attachment = new MessageAttachment(url);
     message.channel.send("URL: **" + url + "**");
     message.channel.send(attachment);
+  }
+
+  if (message.content.startsWith().toLowerCase() === prefix + "spotify") {
+    message.reply("You are not allowed to access this");
   }
 });
 
