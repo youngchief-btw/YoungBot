@@ -102,6 +102,9 @@ function clean(text) {
 
 const prefix = "!^";
 
+const constant = require("discord.js/src/util/Constants.js");
+constant.DefaultOptions.ws.properties.$browser = "Discord iOS";
+
 client.on("debug", console.log);
 
 client.on("ready", () => {
