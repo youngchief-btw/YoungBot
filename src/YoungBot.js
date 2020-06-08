@@ -480,6 +480,12 @@ client.on("guildMemberAdd", member => {
   }
 });
 
+client.on("channelCreate", error => {
+  if (channel.guild.id === "687890772468563998") {
+    channel.guild.channels.find(ch => ch.name === "log")
+  }
+});
+
 client.on("shardError", error => {
   console.error("A websocket connection encountered an error:", error);
 });
