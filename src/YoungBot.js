@@ -242,7 +242,7 @@ client.on("message", async message => {
 
   if (message.content.toLowerCase() === prefix + "ws") {
     message.channel.send(
-      "Here is **<@683552393253879829>**'s website link\nhttps://youngchief-btw.now.sh\n**<@688201741824688198>** has none atm, but will get one soon!"
+      "Here is **<@683552393253879829>**'s website link\nhttps://youngchief.tk\n**<@688201741824688198>** has none atm, but will get one soon!"
     );
   }
 
