@@ -22,7 +22,9 @@ Sentry.init({ dsn: process.env.SentryProjectURL }); // Sentry setup
 app.get("/", (request, response) => {
   response
     .status(200)
-    .send("<style>* { font-family: sans-serif; }</style><center><h1>YoungBot</h1></center>");
+    .send(
+      "<style>* { font-family: sans-serif; }</style><center><h1>YoungBot</h1></center>"
+    );
 });
 
 app.get("*", (request, response) => {
@@ -157,7 +159,9 @@ client.on("message", async message => {
     xplimit = lvl * lvl + 75;
     lvl++;
     if (message.guild.id === "698841420412354581") {
-      const channel = message.member.guild.channels.cache.find(ch => ch.name === "bot-spam");
+      const channel = message.member.guild.channels.cache.find(
+        ch => ch.name === "bot-spam"
+      );
       channel.send(`${message.member}, you've progressed to Level ${lvl}! GG!`);
     } else {
       message.reply(`you've progressed to Level ${lvl}! GG!`);
@@ -204,7 +208,13 @@ client.on("message", async message => {
         prefix +
         "ws** | Return the website.\n**" +
         prefix +
-        "avatar** | Link to your avatar if no one is tagged"
+        "donate** | Wanna donate to the creator? (I need someone to help test that things go smooth, DM **<@683552393253879829>**)\n**" +
+        prefix +
+        "avatar** | Link to your avatar if no one is tagged\n**" +
+        prefix +
+        "dog** | Return a random dog!\n**" +
+        prefix +
+        "cat** | Return a cat!"
     );
   }
 
@@ -399,22 +409,6 @@ client.on("message", async message => {
     message.channel.send(avatarList);
   }
 
-  // || YoungCraft
-  if (message.content.toLowerCase() === prefix + "youngcraft") {
-    message.channel.send("**YoungCraft**\nIP: **IP HERE**\nPort: **25565**");
-  }
-
-  // || BombChief
-  if (message.content.toLowerCase() === prefix + "bombchief") {
-    message.channel.send(
-      "**BombChief**\nIP: **bombchief.glitch.me**\nPort: **3000**\nFull URL: **bombchief.glitch.me:3000**"
-    );
-  }
-
-  if (message.content.toLowerCase() === prefix + "proxychief") {
-    message.channel.send("https://github.com/youngchief-btw/ProxyChief");
-  }
-
   if (message.content.toLowerCase() === prefix + "cat") {
     const { file } = await fetch("https://aws.random.cat/meow").then(response =>
       response.json()
@@ -422,6 +416,12 @@ client.on("message", async message => {
     const attachment = new MessageAttachment(file);
     message.channel.send("URL: **" + file + "**");
     message.channel.send(attachment);
+  }
+
+  if (message.content.toLowerCase() === prefix + "donate") {
+    message.channel.send(
+      "I'm glad you wanna donate!\n**Bitcoin Cash (BCH):** `qq2uw2jcf02e6xd9wqcx7r3djez8646ld5epgd9sx6`\n**Bitcoin (BTC):** `15XhyFnTjJzwyRiK8XF5G6jVUkXjayVCYT`\n**Ethereum (ETH):** `0xd4a82ad0f1a1cb8a075c057de85587e42be06d9a`\n**Nano (NANO):** `nano_1gwpafz9c4mi3sng9jqbxxfcpw9qioo7e6y77415f5eewrqo4whxst1z6d9y`"
+    );
   }
 
   // || Args Test
@@ -441,23 +441,6 @@ client.on("message", async message => {
   if (message.content === prefix + "rip") {
     const attachment = new MessageAttachment("https://i.imgur.com/w3duR07.png");
     message.channel.send(attachment);
-  }
-
-  // PWYC
-  if (message.content.toLowerCase() === prefix + "pwyc") {
-    message.reply(
-      "<@683552393253879829> is currently playing **nothing**, if you want to join use the following information.\n"
-    );
-  }
-
-  // YCA
-  if (message.content.toLowerCase() === prefix + "yca") {
-    message.channel.send("**YoungChief Accounts,**");
-  }
-
-  if (message.content.toLowerCase() === prefix + "yca link") {
-    message.author.send("https://yca.glitch.me/link/discord");
-    message.channel.send("Please check your DMs");
   }
 
   if (message.content.toLowerCase() === prefix + "dog") {
