@@ -420,7 +420,7 @@ client.on("message", async message => {
 
   if (message.content.toLowerCase() === prefix + "donate") {
     message.channel.send(
-      "I'm glad you wanna donate!\n**Bitcoin Cash (BCH):** `qq2uw2jcf02e6xd9wqcx7r3djez8646ld5epgd9sx6`\n**Bitcoin (BTC):** `15XhyFnTjJzwyRiK8XF5G6jVUkXjayVCYT`\n**Ethereum (ETH):** `0xd4a82ad0f1a1cb8a075c057de85587e42be06d9a`\n**Nano (NANO):** `nano_1gwpafz9c4mi3sng9jqbxxfcpw9qioo7e6y77415f5eewrqo4whxst1z6d9y`"
+      "I'm super glad you wanna donate!!\n**https://donate.youngchief.tk/**"
     );
   }
 
