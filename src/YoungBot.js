@@ -16,6 +16,8 @@ const Sentry = require("@sentry/node");
 const ttt = require("discord.js-tictactoe");
 let jsoning = require("jsoning");
 let db = new jsoning("../db.json");
+const Constants = require('discord.js/src/util/Constants.js')
+Constants.DefaultOptions.ws.properties.$browser = `Discord iOS`
 
 Sentry.init({ dsn: process.env.SentryProjectURL }); // Sentry setup
 
@@ -117,7 +119,8 @@ client.on("ready", () => {
   console.log("discord.js || Set AFK to 'false'");
   client.user
     .setActivity("you use !^invite", {
-      type: "LISTENING"
+      type: "LISTENING",
+      browser: "DISCORD IOS"
     })
     .then(presence =>
       console.log(`Activity set to "Watching ${presence.activities[0].name}"`)
