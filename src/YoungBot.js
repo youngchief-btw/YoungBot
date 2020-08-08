@@ -165,9 +165,9 @@ client.on("message", async message => {
       const channel = message.member.guild.channels.cache.find(
         ch => ch.name === "bot-spam"
       );
-      channel.send(`${message.member}, you've progressed to Level ${lvl}! GG!`);
+      /* channel.send(`${message.member}, you've progressed to Level ${lvl}! GG!`); */
     } else {
-      message.reply(`you've progressed to Level ${lvl}! GG!`);
+      /* message.reply(`you've progressed to Level ${lvl}! GG!`); */
     }
 
     userobj = { user: { xp: xp, lvl: lvl } };
