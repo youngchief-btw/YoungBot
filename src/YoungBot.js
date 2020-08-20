@@ -187,7 +187,7 @@ client.on("message", async message => {
   }
 
   if (message.content.startsWith(prefix + "eval")) {
-    if (message.author.id !== "683552393253879829" || message.author.id !== "423203831971708958") return;
+    if !(message.author.id !== "683552393253879829" || message.author.id !== "423203831971708958") return;
     try {
       const code = args.join(" ");
       let evaled = eval(code);
