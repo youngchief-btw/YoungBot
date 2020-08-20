@@ -57,7 +57,7 @@ discord.username = "@youngchief btw ツ";
 discord.tag = 5228;
 discord.fullUsername = discord.username + discord.tag;
 discord.server = {};
-discord.server.inviteCode = "P383jE";
+discord.server.inviteCode = "P383jXE";
 discord.server.URL = "discord.gg/" + discord.server.inviteCode;
 
 function log(...desc) {
@@ -230,7 +230,7 @@ client.on("message", async message => {
   // || Bot Invite Link
   if (message.content.toLowerCase().toLowerCase() === prefix + "invite") {
     message.channel.send(
-      "https://discord.com/oauth2/authorize?client_id=688201741824688198&scope=bot&permissions=8\nhttps://discord.gg/P383jE"
+      "https://discord.com/oauth2/authorize?client_id=688201741824688198&scope=bot&permissions=8\nhttps://discord.gg/P383jXE"
     );
   }
 
