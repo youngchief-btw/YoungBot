@@ -292,7 +292,7 @@ client.on("message", async message => {
     client.user
       .setActivity("you using !^invite", {
         type: "PLAYING",
-        url: "https://youngbot.glitch.me/"
+        url: "https://bot.youngchief.tk/"
       })
       .then(presence =>
         console.log(`Activity set to ${presence.activities[0].name}`)
@@ -324,7 +324,7 @@ client.on("message", async message => {
     client.user
       .setActivity("you using !^invite", {
         type: "LISTENING",
-        url: "https://youngbot.glitch.me/"
+        url: "https://bot.youngchief.tk/"
       })
       .then(presence =>
         console.log(`Activity set to ${presence.activities[0].name}`)
@@ -340,7 +340,7 @@ client.on("message", async message => {
     client.user
       .setActivity("you using !^invite", {
         type: "WATCHING",
-        url: "https://youngbot.glitch.me/"
+        url: "https://bot.youngchief.tk/"
       })
       .then(presence =>
         console.log(`Activity set to ${presence.activities[0].name}`)
@@ -378,6 +378,11 @@ client.on("message", async message => {
 
   // || What is my avatar?
   if (command === "avatar") {
+    if (message.author.id === "") {
+      const attachment = await new MessageAttachment("https://youngcdn.tk/youngchief%20btw%20%E3%83%84/YoungChief%20-%203000x3000.jpg");
+      return message.channel.send(attachment);
+    };
+
     if (!message.mentions.users.size) {
       const attachment = await new MessageAttachment(
         message.author.displayAvatarURL({
@@ -433,11 +438,29 @@ client.on("message", async message => {
     message.channel.send(`First argument: ${args[0]}`);
   }
 
-  // ||
-  if (message.content === prefix + "rip") {
-    const attachment = new MessageAttachment("https://i.imgur.com/w3duR07.png");
-    message.channel.send(attachment);
-  }
+  if (command === "price") {
+    if (!args.length) {
+      return message.channel.send(
+        `You didn't provide any arguments, ${message.author}!`
+      );
+    } else {
+      (async () => {
+        const response = await fetch(`https://api.coingecko.com/api/v3/simple/price?ids=${args[0]}&vs_currencies=${args[1]}&include_market_cap=true&include_24hr_vol=true&include_24hr_change=true&include_last_updated_at=true`);
+        const json = await response.json();
+        const parsedJson = JSON.parse(json)
+        var contrustedMessage = new MessageEmbed()
+        .setTitle(`${args[0]} Price Check`)
+        .setColor(0xff0000)
+        .setDescription(
+          `The results of \${args[0]} are \`\`\`js
+          parsedJson
+          \`\`\``
+        );
+      
+        return message.channel.send(contrustedMessage);
+      })()
+    };
+  };
 
   if (message.content.toLowerCase() === prefix + "dog") {
     const { url } = await fetch("https://random.dog/woof.json").then(response =>
@@ -447,19 +470,18 @@ client.on("message", async message => {
     message.channel.send("URL: **" + url + "**");
     message.channel.send(attachment);
   }
-
-  if (message.content.startsWith().toLowerCase() === prefix + "spotify") {
-    message.reply("You are not allowed to access this");
-  }
 });
 
 // || Server Welcome for my server
-client.on("guildMemberAdd", member => {
-  if (client.message.guild.id === "687890772468563998") {
-    const channel = member.guild.channels.cache.find(ch => ch.name === "logs");
+client.on('guildMemberAdd', member => {
+  // Send the message to a designated channel on a server:
+  if (member.guild.id === "687890772468563998") {
+    const channel = member.guild.channels.cache.find(ch => ch.name === 'general');
+    // Do nothing if the channel wasn't found on this server
     if (!channel) return;
-    channel.send(`Welcome to the server, ${member}`);
-  }
+    // Send the message, mentioning the member
+    channel.send(`Welcome to the server, ${member}!!`);
+  };
 });
 
 client.on("shardError", error => {
