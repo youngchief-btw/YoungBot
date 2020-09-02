@@ -203,21 +203,14 @@ client.on("message", async message => {
   // || Help!!
   if (message.content.toLowerCase() === prefix + "help") {
     message.channel.send(
-      "**Help!**\n**" +
-        prefix +
-        "ping** | Returns your ping\n**" +
-        prefix +
-        "invite** | Return an invite to invite me and an invite to my creator's Discord\n**" +
-        prefix +
-        "ws** | Return the website.\n**" +
-        prefix +
-        "donate** | Wanna donate to the creator? (I need someone to help test that things go smooth, DM **<@683552393253879829>**)\n**" +
-        prefix +
-        "avatar** | Link to your avatar if no one is tagged\n**" +
-        prefix +
-        "dog** | Return a random dog!\n**" +
-        prefix +
-        "cat** | Return a cat!"
+      `**Help!**
+**${prefix}ping** | Returns your ping
+**${prefix}invite** | Return an invite to invite me and an invite to my creator's Discord
+**${prefix}ws** | Return the website.
+**${prefix}donate** | Wanna donate to the creator?
+**${prefix}avatar** | Link to your avatar if no one is tagged
+**${prefix}dog** | Return a random dog!
+**${prefix}cat** | Return a cat!`
     );
   }
 
